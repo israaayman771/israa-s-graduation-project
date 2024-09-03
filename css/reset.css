@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0 !important;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1440px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+

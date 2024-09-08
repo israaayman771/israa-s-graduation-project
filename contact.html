@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteX</title>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+    <!-- fonts css -->
+    <link rel="stylesheet" href="./css/fonts/font.css" />
+
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="./css/reset.css">
+</head>
+
+<body>
+    <!-- #region header -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="34" viewBox="0 0 40 34" fill="none">
+                        <g clip-path="url(#clip0_142_391)">
+                            <path
+                                d="M18.0945 33.3317C14.8636 33.3317 11.7052 32.3737 9.01885 30.5787C6.33247 28.7837 4.23868 26.2324 3.00227 23.2475C1.76587 20.2625 1.44237 16.9779 2.07268 13.8091C2.703 10.6403 4.25882 7.7296 6.5434 5.44501C8.82798 3.16043 11.7387 1.60461 14.9075 0.974293C18.0763 0.343978 21.3609 0.667478 24.3458 1.90389C27.3308 3.14029 29.8821 5.23408 31.6771 7.92046C33.472 10.6068 34.4301 13.7652 34.4301 16.9961C34.4253 21.3271 32.7027 25.4793 29.6402 28.5418C26.5777 31.6043 22.4255 33.3269 18.0945 33.3317Z"
+                                fill="#034833" />
+                            <path
+                                d="M18.094 32.3366C21.1279 32.3366 24.0938 31.4369 26.6164 29.7514C29.1391 28.0658 31.1053 25.67 32.2663 22.8669C33.4274 20.0639 33.7312 16.9795 33.1393 14.0039C32.5474 11.0282 31.0864 8.29485 28.941 6.1495C26.7957 4.00415 24.0623 2.54316 21.0867 1.95126C18.111 1.35936 15.0266 1.66314 12.2236 2.82419C9.42055 3.98525 7.02476 5.95142 5.33917 8.47408C3.65359 10.9967 2.75391 13.9626 2.75391 16.9966C2.7587 21.0635 4.37642 24.9625 7.2522 27.8383C10.128 30.7141 14.027 32.3318 18.094 32.3366Z"
+                                fill="white" />
+                            <path
+                                d="M38.2725 11.2035C38.0139 11.1079 37.326 10.2959 34.2358 10.5545C33.2014 10.6424 30.2042 11.5889 26.4157 12.7707L17.5458 9.19165L14.8719 9.47611L22.0015 14.149C19.5318 14.9093 16.9329 15.6825 14.4271 16.3548L9.21119 12.7344L7.76562 13.1275L12.1825 18.7701L10.9076 21.413L12.7566 21.1932L13.9823 19.4218C17.4592 19.3108 20.9201 18.8999 24.3263 18.1935L22.5937 25.1756L24.784 24.2343L28.1768 17.3582C38.8647 14.8032 39.7853 12.8482 39.987 12.3026C40.2042 11.682 38.5337 11.3018 38.2725 11.2035Z"
+                                fill="#034833" />
+                            <path d="M4.25098 27.9886L22.0063 24.7561L22.3425 22.8088L4.25098 27.9886Z"
+                                fill="#034833" />
+                            <path d="M2.22656 25.2578L22.692 21.1797L23.1058 19.1057L2.22656 25.2578Z" fill="#034833" />
+                            <path d="M10.548 20.5896L1.02637 22.5497L11.1453 19.4026L10.548 20.5896Z" fill="#034833" />
+                            <path d="M10.6082 17.7757L0.4375 20.0591L9.8841 16.9534L10.6082 17.7757Z" fill="#034833" />
+                            <path d="M9.04577 15.4814L0 17.5709L8.3217 14.6565L9.04577 15.4814Z" fill="#034833" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_142_391">
+                                <rect width="40" height="32.6713" fill="white" transform="translate(0 0.664307)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="104" height="26" viewBox="0 0 104 26" fill="none">
+                        <path
+                            d="M83.5356 24.7279L91.3437 12.7279L83.5996 0.887939H88.5916L94.9277 10.5839H92.6236L98.9277 0.887939H103.92L96.2076 12.7279L103.984 24.7279H98.9916L92.6236 14.9039H94.9277L88.5276 24.7279H83.5356Z"
+                            fill="#034833" />
+                        <path
+                            d="M75.2378 25.1119C73.4458 25.1119 71.8778 24.7066 70.5338 23.8959C69.1898 23.0852 68.1445 21.9866 67.3978 20.5999C66.6512 19.2132 66.2778 17.6772 66.2778 15.9919C66.2778 14.2426 66.6512 12.6959 67.3978 11.3519C68.1658 9.98658 69.2005 8.90925 70.5018 8.11991C71.8245 7.33058 73.2965 6.93591 74.9178 6.93591C76.2832 6.93591 77.4778 7.15991 78.5018 7.60791C79.5472 8.05591 80.4325 8.67458 81.1578 9.46391C81.8832 10.2532 82.4378 11.1599 82.8218 12.1839C83.2058 13.1866 83.3978 14.2746 83.3978 15.4479C83.3978 15.7466 83.3765 16.0559 83.3338 16.3759C83.3125 16.6959 83.2592 16.9732 83.1738 17.2079H69.7338V14.0079H80.8058L78.8218 15.5119C79.0138 14.5306 78.9605 13.6559 78.6618 12.8879C78.3845 12.1199 77.9152 11.5119 77.2538 11.0639C76.6138 10.6159 75.8352 10.3919 74.9178 10.3919C74.0432 10.3919 73.2645 10.6159 72.5818 11.0639C71.8992 11.4906 71.3765 12.1306 71.0138 12.9839C70.6725 13.8159 70.5445 14.8292 70.6298 16.0239C70.5445 17.0906 70.6832 18.0399 71.0458 18.8719C71.4298 19.6826 71.9845 20.3119 72.7098 20.7599C73.4565 21.2079 74.3098 21.4319 75.2698 21.4319C76.2298 21.4319 77.0405 21.2292 77.7018 20.8239C78.3845 20.4186 78.9178 19.8746 79.3018 19.1919L82.6938 20.8559C82.3525 21.6879 81.8192 22.4239 81.0938 23.0639C80.3685 23.7039 79.5045 24.2052 78.5018 24.5679C77.5205 24.9306 76.4325 25.1119 75.2378 25.1119Z"
+                            fill="#034833" />
+                        <path
+                            d="M63.2953 24.9199C61.3327 24.9199 59.8073 24.3866 58.7193 23.3199C57.6527 22.2319 57.1193 20.7066 57.1193 18.7439V11.0639H54.1113V7.31993H54.4313C55.2847 7.31993 55.946 7.09593 56.4153 6.64793C56.8847 6.19993 57.1193 5.54926 57.1193 4.69593V3.35193H61.3113V7.31993H65.3113V11.0639H61.3113V18.5199C61.3113 19.0959 61.4073 19.5866 61.5993 19.9919C61.8127 20.3973 62.1327 20.7066 62.5593 20.9199C63.0073 21.1333 63.5727 21.2399 64.2553 21.2399C64.4047 21.2399 64.5753 21.2293 64.7673 21.2079C64.9807 21.1866 65.1833 21.1653 65.3753 21.1439V24.7279C65.0767 24.7706 64.7353 24.8133 64.3513 24.8559C63.9673 24.8986 63.6153 24.9199 63.2953 24.9199Z"
+                            fill="#034833" />
+                        <path
+                            d="M44.0385 25.1119C42.6945 25.1119 41.5212 24.8133 40.5185 24.2159C39.5372 23.6186 38.7799 22.7866 38.2465 21.7199C37.7345 20.6533 37.4785 19.4053 37.4785 17.9759V7.31995H41.6705V17.6239C41.6705 18.3493 41.8092 18.9893 42.0865 19.5439C42.3852 20.0773 42.8012 20.5039 43.3345 20.8239C43.8892 21.1226 44.5079 21.2719 45.1905 21.2719C45.8732 21.2719 46.4812 21.1226 47.0145 20.8239C47.5479 20.5039 47.9638 20.0666 48.2625 19.5119C48.5612 18.9573 48.7105 18.2959 48.7105 17.5279V7.31995H52.9025V24.7279H48.9345V21.3039L49.2865 21.9119C48.8812 22.9786 48.2092 23.7786 47.2705 24.3119C46.3532 24.8453 45.2759 25.1119 44.0385 25.1119Z"
+                            fill="#034833" />
+                        <path
+                            d="M26.9074 25.1119C25.2007 25.1119 23.6434 24.7172 22.2354 23.9279C20.8487 23.1386 19.7394 22.0612 18.9074 20.6959C18.0967 19.3306 17.6914 17.7732 17.6914 16.0239C17.6914 14.2746 18.0967 12.7172 18.9074 11.3519C19.7394 9.98658 20.8487 8.90925 22.2354 8.11991C23.6221 7.33058 25.1794 6.93591 26.9074 6.93591C28.6141 6.93591 30.1607 7.33058 31.5474 8.11991C32.9341 8.90925 34.0327 9.98658 34.8434 11.3519C35.6754 12.6959 36.0914 14.2532 36.0914 16.0239C36.0914 17.7732 35.6754 19.3306 34.8434 20.6959C34.0114 22.0612 32.9021 23.1386 31.5154 23.9279C30.1287 24.7172 28.5927 25.1119 26.9074 25.1119ZM26.9074 21.2719C27.8461 21.2719 28.6674 21.0479 29.3714 20.5999C30.0967 20.1519 30.6621 19.5332 31.0674 18.7439C31.4941 17.9332 31.7074 17.0266 31.7074 16.0239C31.7074 14.9999 31.4941 14.1039 31.0674 13.3359C30.6621 12.5466 30.0967 11.9279 29.3714 11.4799C28.6674 11.0106 27.8461 10.7759 26.9074 10.7759C25.9474 10.7759 25.1047 11.0106 24.3794 11.4799C23.6541 11.9279 23.0781 12.5466 22.6514 13.3359C22.2461 14.1039 22.0434 14.9999 22.0434 16.0239C22.0434 17.0266 22.2461 17.9332 22.6514 18.7439C23.0781 19.5332 23.6541 20.1519 24.3794 20.5999C25.1047 21.0479 25.9474 21.2719 26.9074 21.2719Z"
+                            fill="#034833" />
+                        <path
+                            d="M0 24.7279V0.887939H8.864C10.4853 0.887939 11.9147 1.18661 13.152 1.78394C14.4107 2.35994 15.392 3.21327 16.096 4.34394C16.8 5.45327 17.152 6.80794 17.152 8.40794C17.152 10.0506 16.7573 11.4479 15.968 12.5999C15.2 13.7519 14.1547 14.6053 12.832 15.1599L18.304 24.7279H13.376L7.52 14.2639L10.336 15.9279H4.352V24.7279H0ZM4.352 12.0879H8.928C9.71733 12.0879 10.4 11.9386 10.976 11.6399C11.552 11.3199 12 10.8826 12.32 10.3279C12.64 9.77327 12.8 9.13327 12.8 8.40794C12.8 7.66127 12.64 7.02127 12.32 6.48794C12 5.93327 11.552 5.50661 10.976 5.20794C10.4 4.88794 9.71733 4.72794 8.928 4.72794H4.352V12.0879Z"
+                            fill="#034833" />
+                    </svg>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about-us.index.html">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQ.html">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="d-flex align-items-center justify-content-center btn header-btn">
+                    Get An Appointment
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="justify-content-end">
+                <ul class="navbar-nav mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Sustainability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Careers</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- #endregion header -->
+
+    <!-- #region FAQ-->
+    <section class="green-section">
+        <div class="container">
+            <div class="d-flex gap-2 flex-column">
+                <h1>
+                    Contact
+                </h1>
+                <p class="d-flex">
+                    Home
+                    <img src="./img/faq-chevron.svg" alt="">
+                    Contact
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <!-- #endregion FAQ -->
+
+    <!-- #region form section -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-imgs position-relative">
+                        <img src="./img/form-section.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 section-title d-flex flex-column">
+                    <p class="navbar-brand d-flex align-items-center about-us">
+                        Contact Information
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                            <g clip-path="url(#clip0_1_2369)">
+                                <path d="M4.9248 10.3748L6.49525 9.68052L5.62485 9.07031L4.9248 10.3748Z"
+                                    fill="#83CD20" />
+                                <path d="M4.9248 10.3743L4.99976 8L13.9078 0L5.66407 9.1113L4.9248 10.3743Z"
+                                    fill="#83CD20" />
+                                <path d="M5 8L13.908 0L0 6.22704L5 8Z" fill="#83CD20" />
+                                <path d="M5.66406 9.1113L9.95686 12L13.9078 0L5.66406 9.1113Z" fill="#034833" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1_2369">
+                                    <rect width="13.908" height="12" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </p>
+                    <div class="section-heading d-flex flex-column">
+                        <h2>
+                            Let Your Wanderlust Guide You
+                        </h2>
+                    </div>
+                    <form class="d-flex flex-column">
+                        <div class="row">
+                            <div class="mb-3 col-lg-6 ps-0">
+                                <div class="form-item">
+                                    <label for="exampleInputEmail1" class="form-label">Your Email</label>
+                                    <div class="d-flex align-items-center position-relative">
+                                        <input type="tel" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Your Email">
+                                        <img src="./img/paper.svg" alt="" class="position-absolute">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-lg-6 pe-0">
+                                <div class="form-item">
+                                    <label for="exampleInputPhone" class="form-label">Email address</label>
+                                    <div class="d-flex align-items-center position-relative">
+                                        <input type="tel" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Your Phone">
+                                        <img src="./img/phone.svg" alt="" class="position-absolute">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check ps-0">
+                            <label class="form-check-label" for="exampleCheck1">Your Address</label>
+                            <div class="d-flex align-items-center position-relative">
+                                <input type="text" class="form-control" id="exampleAdress" placeholder="Your Addresss">
+                                <img src="./img/location.svg" alt="" class="position-absolute">
+                            </div>
+
+                        </div>
+                        <div class="mb-3 form-check ps-0">
+                            <label class="form-check-label" for="exampleCheck1">Message</label>
+                            <div class="position-relative d-flex text-area">
+                                <textarea name="" id="" placeholder="Write Message.."></textarea>
+                                <img src="./img/messege.svg" alt="" class="position-absolute">
+                            </div>
+                        </div>
+                        <button type="submit" class=" btn-primary form-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- #endregion form section -->
+
+    <!-- #region Contact -->
+    <section class="contact">
+        <div class="container">
+            <div class="d-flex flex-column gap-5">
+                <div class="section-heading d-flex flex-column align-items-center">
+                    <p>
+                        Contact Information
+                    </p>
+                    <h3>
+                        Let Your Wanderlust Guide You
+                    </h3>
+                </div>
+                <ul class="nav nav-tabs justify-content-center">
+                    <li class="active"><a data-toggle="tab" href="#home">Asia</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Europe</a></li>
+                    <li><a data-toggle="tab" href="#menu2">North America</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Australia</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+    
+                        <img src="./img/green phone.svg" alt="">
+                        <div class="card-content">
+                            <p>
+                                Requesting A Call:
+                            </p>
+                            <span>
+                                Team member
+                            </span>
+                        </div>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.</p>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                            totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Menu 3</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                            explicabo.</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="d-flex justify-content-between wanderlust">
+                <div class="d-flex" style="gap: 3.9375rem;">
+                    <div class="d-flex flex-column" style="gap: 1.25rem;">
+                        <div class="d-flex guide">
+                            <div class="div-icon">
+                                <img src="./img/green phone.svg" alt="">
+                            </div>
+                            <div class="div-content d-flex flex-column">
+                                <p>
+                                    Requesting A Call:
+                                </p>
+                                <span>
+                                    (629) 555-0129
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex guide">
+                            <div class="div-icon">
+                                <img src="./img/mail.svg" alt="">
+                            </div>
+                            <div class="div-content d-flex flex-column">
+                                <p>
+                                    E-mail
+                                </p>
+                                <span>
+                                    info@example.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex guide">
+                            <div class="div-icon">
+                                <img src="./img/green location.svg" alt="">
+                            </div>
+                            <div class="div-content d-flex flex-column">
+                                <p>
+                                    Location
+                                </p>
+                                <span>
+                                    6391 Elgin St. Celina,<br> Delaware 10299
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 2px; height: 100%; background-color: var(--input);">
+                    <div class="d-flex flex-column" style="gap: 0.875rem;">
+                        <div class="div-content d-flex flex-column">
+                            <div class="">
+                                <p>Monday</p>
+                            </div>
+                            <div class="time d-flex">
+                                <img src="./img/clock.svg" alt="">
+                                <span>
+                                    9 am - 8 pm
+                                </span>
+                            </div>
+                        </div>
+                        <div class="div-content d-flex flex-column">
+                            <div class="">
+                                <p>Tuesday-Friday</p>
+                            </div>
+                            <div class="time d-flex">
+                                <img src="./img/clock.svg" alt="">
+                                <span>
+                                    12 am - 9 pm
+                                </span>
+                            </div>
+                        </div>
+                        <div class="div-content d-flex flex-column">
+                            <div class="">
+                                <p>Saturday</p>
+                            </div>
+                            <div class="time d-flex">
+                                <img src="./img/clock.svg" alt="">
+                                <span>
+                                    8 am - 3 pm
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-img">
+                    <img src="./img/contact-img.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- #region footer-->
+<footer class="d-flex flex-column gap-4">
+    <div class="container d-flex justify-content-between">
+        <div class="d-flex flex-column align-items-start gap-4">
+            <div class="d-flex flex-column left-footer">
+                <a href="#" class="footer-logo d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="33" viewBox="0 0 41 33" fill="none">
+                        <g clip-path="url(#clip0_225_271)">
+                            <path
+                                d="M18.6023 32.6686C15.3714 32.6686 12.2131 31.7106 9.52667 29.9156C6.84028 28.1206 4.74649 25.5693 3.51009 22.5844C2.27368 19.5994 1.95018 16.3149 2.58049 13.1461C3.21081 9.97725 4.76663 7.06651 7.05121 4.78193C9.3358 2.49734 12.2465 0.941522 15.4153 0.311207C18.5842 -0.319108 21.8687 0.00439203 24.8537 1.2408C27.8386 2.47721 30.3899 4.57099 32.1849 7.25738C33.9799 9.94376 34.9379 13.1021 34.9379 16.333C34.9331 20.664 33.2105 24.8163 30.148 27.8787C27.0855 30.9412 22.9333 32.6639 18.6023 32.6686Z"
+                                fill="#83CD20" />
+                            <path
+                                d="M18.6023 31.673C21.6362 31.673 24.6021 30.7734 27.1247 29.0878C29.6474 27.4022 31.6136 25.0064 32.7746 22.2034C33.9357 19.4003 34.2395 16.316 33.6476 13.3403C33.0557 10.3646 31.5947 7.63127 29.4493 5.48593C27.304 3.34058 24.5706 1.87958 21.595 1.28768C18.6193 0.695782 15.5349 0.999566 12.7319 2.16062C9.92885 3.32167 7.53306 5.28785 5.84747 7.81051C4.16189 10.3332 3.26221 13.299 3.26221 16.333C3.267 20.3999 4.88472 24.299 7.7605 27.1748C10.6363 30.0505 14.5353 31.6683 18.6023 31.673Z"
+                                fill="#034833" />
+                            <path
+                                d="M38.7808 10.5378C38.5222 10.4421 37.8343 9.63009 34.7441 9.88869C33.7097 9.97661 30.7125 10.9231 26.924 12.1049L18.0541 8.52588L15.3802 8.81034L22.5098 13.4832C20.0402 14.2435 17.4412 15.0167 14.9354 15.6891L9.71949 12.0687L8.27393 12.4617L12.6908 18.1044L11.4159 20.7472L13.2649 20.5274L14.4906 18.756C17.9675 18.6451 21.4284 18.2341 24.8346 17.5277L23.102 24.5098L25.2923 23.5685L28.6851 16.6924C39.373 14.1375 40.2936 12.1825 40.4953 11.6368C40.7125 11.0162 39.042 10.636 38.7808 10.5378Z"
+                                fill="#83CD20" />
+                            <path d="M4.75977 27.3262L22.5151 24.0937L22.8513 22.1465L4.75977 27.3262Z"
+                                fill="#83CD20" />
+                            <path d="M2.73486 24.5954L23.2003 20.5173L23.6141 18.4434L2.73486 24.5954Z"
+                                fill="#83CD20" />
+                            <path d="M11.0568 19.925L1.53516 21.8852L11.6541 18.738L11.0568 19.925Z" fill="#83CD20" />
+                            <path d="M11.116 17.1114L0.945312 19.3948L10.3919 16.2891L11.116 17.1114Z" fill="#83CD20" />
+                            <path d="M9.55407 14.8176L0.508301 16.9071L8.83 13.9927L9.55407 14.8176Z" fill="#83CD20" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_225_271">
+                                <rect width="40" height="32.6713" fill="white" transform="translate(0.508301)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="105" height="25" viewBox="0 0 105 25" fill="none">
+                        <path
+                            d="M84.0439 24.0636L91.852 12.0636L84.1079 0.223633H89.0999L95.436 9.91963H93.132L99.436 0.223633H104.428L96.716 12.0636L104.492 24.0636H99.4999L93.132 14.2396H95.436L89.0359 24.0636H84.0439Z"
+                            fill="white" />
+                        <path
+                            d="M75.7461 24.4477C73.9541 24.4477 72.3861 24.0424 71.0421 23.2317C69.6981 22.4211 68.6528 21.3224 67.9061 19.9357C67.1595 18.5491 66.7861 17.0131 66.7861 15.3277C66.7861 13.5784 67.1595 12.0317 67.9061 10.6877C68.6741 9.3224 69.7088 8.24506 71.0101 7.45573C72.3328 6.6664 73.8048 6.27173 75.4261 6.27173C76.7915 6.27173 77.9861 6.49573 79.0101 6.94373C80.0555 7.39173 80.9408 8.0104 81.6661 8.79973C82.3915 9.58906 82.9461 10.4957 83.3301 11.5197C83.7141 12.5224 83.9061 13.6104 83.9061 14.7837C83.9061 15.0824 83.8848 15.3917 83.8421 15.7117C83.8208 16.0317 83.7675 16.3091 83.6821 16.5437H70.2421V13.3437H81.3141L79.3301 14.8477C79.5221 13.8664 79.4688 12.9917 79.1701 12.2237C78.8928 11.4557 78.4235 10.8477 77.7621 10.3997C77.1221 9.95173 76.3435 9.72773 75.4261 9.72773C74.5515 9.72773 73.7728 9.95173 73.0901 10.3997C72.4075 10.8264 71.8848 11.4664 71.5221 12.3197C71.1808 13.1517 71.0528 14.1651 71.1381 15.3597C71.0528 16.4264 71.1915 17.3757 71.5541 18.2077C71.9381 19.0184 72.4928 19.6477 73.2181 20.0957C73.9648 20.5437 74.8181 20.7677 75.7781 20.7677C76.7381 20.7677 77.5488 20.5651 78.2101 20.1597C78.8928 19.7544 79.4261 19.2104 79.8101 18.5277L83.2021 20.1917C82.8608 21.0237 82.3275 21.7597 81.6021 22.3997C80.8768 23.0397 80.0128 23.5411 79.0101 23.9037C78.0288 24.2664 76.9408 24.4477 75.7461 24.4477Z"
+                            fill="white" />
+                        <path
+                            d="M63.8036 24.2557C61.841 24.2557 60.3156 23.7224 59.2276 22.6557C58.161 21.5677 57.6276 20.0424 57.6276 18.0797V10.3997H54.6196V6.65574H54.9396C55.793 6.65574 56.4543 6.43174 56.9236 5.98375C57.393 5.53574 57.6276 4.88508 57.6276 4.03174V2.68774H61.8196V6.65574H65.8196V10.3997H61.8196V17.8557C61.8196 18.4317 61.9156 18.9224 62.1076 19.3277C62.321 19.7331 62.641 20.0424 63.0676 20.2557C63.5156 20.4691 64.081 20.5757 64.7636 20.5757C64.913 20.5757 65.0836 20.5651 65.2756 20.5437C65.489 20.5224 65.6916 20.5011 65.8836 20.4797V24.0637C65.585 24.1064 65.2436 24.1491 64.8596 24.1917C64.4756 24.2344 64.1236 24.2557 63.8036 24.2557Z"
+                            fill="white" />
+                        <path
+                            d="M44.5468 24.4475C43.2028 24.4475 42.0295 24.1489 41.0268 23.5515C40.0455 22.9542 39.2882 22.1222 38.7548 21.0555C38.2428 19.9889 37.9868 18.7409 37.9868 17.3115V6.65552H42.1788V16.9595C42.1788 17.6849 42.3175 18.3249 42.5948 18.8795C42.8935 19.4129 43.3095 19.8395 43.8428 20.1595C44.3975 20.4582 45.0162 20.6075 45.6988 20.6075C46.3815 20.6075 46.9895 20.4582 47.5228 20.1595C48.0562 19.8395 48.4721 19.4022 48.7708 18.8475C49.0695 18.2929 49.2188 17.6315 49.2188 16.8635V6.65552H53.4108V24.0635H49.4428V20.6395L49.7948 21.2475C49.3895 22.3142 48.7175 23.1142 47.7788 23.6475C46.8615 24.1809 45.7842 24.4475 44.5468 24.4475Z"
+                            fill="white" />
+                        <path
+                            d="M27.4157 24.4477C25.709 24.4477 24.1517 24.0531 22.7437 23.2637C21.357 22.4744 20.2477 21.3971 19.4157 20.0317C18.605 18.6664 18.1997 17.1091 18.1997 15.3597C18.1997 13.6104 18.605 12.0531 19.4157 10.6877C20.2477 9.3224 21.357 8.24506 22.7437 7.45573C24.1304 6.6664 25.6877 6.27173 27.4157 6.27173C29.1224 6.27173 30.669 6.6664 32.0557 7.45573C33.4424 8.24506 34.541 9.3224 35.3517 10.6877C36.1837 12.0317 36.5997 13.5891 36.5997 15.3597C36.5997 17.1091 36.1837 18.6664 35.3517 20.0317C34.5197 21.3971 33.4104 22.4744 32.0237 23.2637C30.637 24.0531 29.101 24.4477 27.4157 24.4477ZM27.4157 20.6077C28.3544 20.6077 29.1757 20.3837 29.8797 19.9357C30.605 19.4877 31.1704 18.8691 31.5757 18.0797C32.0024 17.2691 32.2157 16.3624 32.2157 15.3597C32.2157 14.3357 32.0024 13.4397 31.5757 12.6717C31.1704 11.8824 30.605 11.2637 29.8797 10.8157C29.1757 10.3464 28.3544 10.1117 27.4157 10.1117C26.4557 10.1117 25.613 10.3464 24.8877 10.8157C24.1624 11.2637 23.5864 11.8824 23.1597 12.6717C22.7544 13.4397 22.5517 14.3357 22.5517 15.3597C22.5517 16.3624 22.7544 17.2691 23.1597 18.0797C23.5864 18.8691 24.1624 19.4877 24.8877 19.9357C25.613 20.3837 26.4557 20.6077 27.4157 20.6077Z"
+                            fill="white" />
+                        <path
+                            d="M0.508301 24.0636V0.223633H9.3723C10.9936 0.223633 12.423 0.5223 13.6603 1.11963C14.919 1.69563 15.9003 2.54897 16.6043 3.67963C17.3083 4.78897 17.6603 6.14363 17.6603 7.74363C17.6603 9.3863 17.2656 10.7836 16.4763 11.9356C15.7083 13.0876 14.663 13.941 13.3403 14.4956L18.8123 24.0636H13.8843L8.0283 13.5996L10.8443 15.2636H4.8603V24.0636H0.508301ZM4.8603 11.4236H9.4363C10.2256 11.4236 10.9083 11.2743 11.4843 10.9756C12.0603 10.6556 12.5083 10.2183 12.8283 9.66363C13.1483 9.10897 13.3083 8.46897 13.3083 7.74363C13.3083 6.99697 13.1483 6.35697 12.8283 5.82363C12.5083 5.26897 12.0603 4.8423 11.4843 4.54363C10.9083 4.22363 10.2256 4.06363 9.4363 4.06363H4.8603V11.4236Z"
+                            fill="white" />
+                    </svg>
+                </a>
+                <p>
+                    Corporate business typically refers to large-scale mansola it enterprises or organizat
+                </p>
+            </div>
+            <ul class="d-flex align-items-center gap-4 left-footer-ul">
+                <li>
+                    <a href="#">
+                        <img src="./img/facebook.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/insta.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/x.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/linkedin.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex flex-column middle-footer">
+            <h6>
+                Service Menu
+            </h6>
+            <ul class="d-flex flex-column">
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-check.svg" alt="">
+                    <p>
+                        Mistakes To Avoid
+                    </p>
+                </li>
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-check.svg" alt="">
+                    <p>
+                        Your Startup
+                    </p>
+                </li>
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-check.svg" alt="">
+                    <p>
+                        Knew About Fonts
+                    </p>
+                </li>
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-check.svg" alt="">
+                    <p>
+                        Knew About Fonts
+                    </p>
+                </li>
+
+            </ul>
+        </div>
+        <div class="d-flex flex-column middle-footer">
+            <h6>
+                Useful Link
+            </h6>
+            <ul class="d-flex flex-column">
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-chevor.svg" alt="">
+                    <p>
+                        Latest News
+                    </p>
+                </li>
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-chevor.svg" alt="">
+                    <p>
+                        Careers
+                    </p>
+                </li>
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-chevor.svg" alt="">
+                    <p>
+                        General Inquiries
+                    </p>
+                </li>
+                <li class="d-flex gap-2">
+                    <img src="./img/footer-chevor.svg" alt="">
+                    <p>
+                        Case Studies
+                    </p>
+                </li>
+
+            </ul>
+        </div>
+        <div class="d-flex flex-column right-footer">
+            <h6>
+                Gallery
+            </h6>
+            <div class="d-flex gap-2 flex-column">
+                <ul class="d-flex flex-wrap">
+                    <li>
+                        <img src="./img/footer.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./img/footer (2).png" alt="">
+                    </li>
+                    <li>
+                        <img src="./img/footer (3).png" alt="">
+                    </li>
+                </ul>
+                <ul class="d-flex flex-wrap">
+                    <li>
+                        <img src="./img/footer (4).png" alt="">
+                    </li>
+                    <li>
+                        <img src="./img/footer (5).png" alt="">
+                    </li>
+                    <li>
+                        <img src="./img/footer (6).png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+            <p class="copy-right">
+                © Yoursitename 2020 | All Rights Reserved
+            </p>
+            <ul class="d-flex gap-3 footer-nav">
+                <li>
+                    <a href="#">
+                        Trams & Condition
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- #endregion footer-->
+<script src="js/app.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+</body>
+
+</html>

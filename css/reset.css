@@ -1,6 +1,20 @@
+:root {
+    /*color*/
+    --primary: #83CD20;
+    --secondry: #034833;
+    --black: #16171A;
+    --white: #FFFFFF;
+    --gray: #727272;
+    --discover-bg: #F1F5EB;
+    --input: #E3DBD8;
+    --form: #F1F5EB;
+
+}
+
 * {
     box-sizing: border-box;
     margin: 0 !important;
+    font-family: 'Plus Jakarta Sans';
 }
 
 ul {
@@ -18,3 +32,87 @@ a {
     margin-right: auto !important;
 }
 
+.btn {
+    padding: 1.25rem 1.875rem;
+    background-color: var(--primary);
+    color: var(--white);
+    gap: 0.625rem;
+    border-radius: 9.375rem;
+    border: 1px solid var(--primary);
+    transition: 0.5s;
+    min-width: 170px;
+}
+
+.btn svg {
+    width: 12px;
+    fill: var(--white);
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn:hover svg {
+    fill: var(--primary);
+}
+
+.active {
+    font-weight: 700;
+}
+
+.green-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.green-section .container {
+    background-color: var(--secondry);
+    border-radius: 3.125rem;
+    padding: 9.4375rem 11.4375rem;
+    opacity: 0.8;
+}
+
+.green-section p {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.75rem;
+    color: var(--white);
+    gap: 0.9rem;
+}
+
+.form-btn {
+    padding: 1.25rem 1.875rem !important;
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+    gap: 0.625rem !important;
+    border-radius: 9.375rem;
+    border: 1px solid var(--primary);
+    transition: 0.5s;
+}
+
+.form-btn:hover {
+    background-color: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondry {
+    padding: 1.25rem 1.875rem;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.875rem;
+    color: var(--secondry);
+    border-radius: 62.4375rem;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+}
+
+.btn-secondry:hover{
+    background-color: var(--primary);
+    color: var(--white);
+}
